@@ -62,7 +62,10 @@ This theme uses the Elegant Themes icon set created by Nicholas Roachcan:
 http://www.elegantthemes.com/blog/resources/free-social-media-icon-set
 These icons are dual licensed under the MIT and GPL 3.0.
 
-New icons for Instagram and SoundCloud were contributed by @natts (https://www.drupal.org/u/natts). These icons are licensed under the GPL 2 or later.
+New icons for Instagram and SoundCloud were contributed by Dave Nattriss
+(@natts - https://www.drupal.org/u/natts). These icons are licensed under the
+GPL 2 or later.
+
 
 
 Support

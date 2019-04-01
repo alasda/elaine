@@ -2,12 +2,12 @@
 <div class="texture-overlay">
   <div id="page" class="container <?php print $classes; ?>">
 
-    <header id="header" class="clearfix" role="banner">
+    <header <?php print $header_attributes; ?>>
       <div class="header-inner clearfix">
 
         <?php if ($site_logo || $site_name || $site_slogan): ?>
           <!-- start: Branding -->
-          <div id="branding" class="branding-elements clearfix">
+          <div <?php print $branding_attributes; ?>>
 
             <?php if ($site_logo): ?>
               <div id="logo">
@@ -17,14 +17,14 @@
 
             <?php if ($site_name || $site_slogan): ?>
               <!-- start: Site name and Slogan hgroup -->
-              <div id="name-and-slogan"<?php print $hgroup_attributes; ?>>
+              <div <?php print $hgroup_attributes; ?>>
 
                 <?php if ($site_name): ?>
-                  <h1 id="site-name"<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
+                  <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
                 <?php endif; ?>
 
                 <?php if ($site_slogan): ?>
-                  <h2 id="site-slogan"<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
+                  <p <?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></p>
                 <?php endif; ?>
 
               </div><!-- /end #name-and-slogan -->
@@ -73,13 +73,13 @@
         <div id="content-column">
           <div class="content-inner">
 
-            <?php print render($page['highlight']); // Highlighted region ?>
+            <?php print render($page['highlighted']); // Highlighted region ?>
 
             <<?php print $tag; ?> id="main-content" role="main">
 
               <?php print render($title_prefix); ?>
               <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
-                <header id="main-content-header" class="clearfix">
+                <header <?php print $content_header_attributes; ?>>
 
                   <?php if ($title): ?>
                     <h1 id="page-title"><?php print $title; ?></h1>
@@ -151,7 +151,7 @@
     <?php endif; ?>
 
     <?php if ($page['footer'] || $attribution): ?>
-      <footer id="footer" role="contentinfo">
+      <footer <?php print $footer_attributes; ?>>
         <div id="footer-inner" class="clearfix">
           <?php print render($page['footer']); // Footer region ?>
           <p class="attribute-creator"><?php print $attribution; ?></p>

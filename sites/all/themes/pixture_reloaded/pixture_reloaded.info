@@ -199,7 +199,7 @@
   settings[bigscreen_six_6x16]          = 'six-6x16-3x2-grid'
   settings[bigscreen_three_inset_left]  = 'three-inset-left'
   settings[bigscreen_three_inset_right] = 'three-inset-right'
-  
+
 
   ; Responsive Panels - Tablet landscape
   settings[tablet_landscape_two_50]            = 'two-50'
@@ -425,6 +425,10 @@
   settings[custom_css] = ''
 
 
+  ; Attribution
+  settings[attribution_toggle] = 1
+
+
   ; PR Custom
   settings[content_corner_radius] = 'rc-6'
   settings[tabs_corner_radius]    = 'rct-6'
@@ -433,9 +437,9 @@
   settings[menu_bullets]          = 'mb-dd'
   settings[menu_bar_position]     = 'mbp-l'
 
-; Information added by Drupal.org packaging script on 2014-03-23
-version = "7.x-3.0"
+; Information added by Drupal.org packaging script on 2016-07-11
+version = "7.x-3.1"
 core = "7.x"
 project = "pixture_reloaded"
-datestamp = "1395577169"
+datestamp = "1468237741"
 

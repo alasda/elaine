@@ -66,7 +66,7 @@ function views_pdf_rules_action_save($views_pdf, $arguments, $path) {
   if (!empty($view_id)) {
     $view = views_get_view($view_id);
 
-    $view->set_arguments(explode("\n", $arguments));
+    $view->set_arguments(preg_split("/\r\n|\n|\r/", $arguments));
 
     // Try to get pdf display
     if (!$view->set_display($display_id)) {
@@ -79,7 +79,7 @@ function views_pdf_rules_action_save($views_pdf, $arguments, $path) {
 
     $view->pre_execute();
     foreach ($view->display as $id => $display) {
-      if ($display->display_plugin == 'pdf' && isset($display->handler)) {
+      if ($display->display_plugin == 'pdf' && isset($display->handler) && $id == $display_id) {
         $display->handler->execute($path, 'F');
       }
     }

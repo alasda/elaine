@@ -42,7 +42,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 menu,
 nav,
 section {
@@ -662,7 +661,7 @@ article .field-type-image.field-label-inline .field-label {
   font-size: 0.923em;
   padding: 10px 0 0;
 }
-tabel .field-type-image img {
+table .field-type-image img {
   width: 100%;
   height: auto;
 }
@@ -1430,4 +1429,10 @@ body.wysiwygeditor {
 /* Misc styles to be categorised */
 .filter-help a {
   padding: 0 20px 0 0;
+}
+
+/* Attribution */
+.attribute-creator {
+  text-align: center;
+  opacity: 0.5;
 }

@@ -125,9 +125,8 @@ tr.even {
 #footer {
   background: #181818; /* fallback for browsers that don't support CSS gradients */
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#181818), to(#343434));
-  background-image: -moz-linear-gradient(-90deg, #181818, #343434);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#181818', endColorstr='#343434')";
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#181818,endColorstr=#343434,GradientType=0);
+  background-image: -moz-linear-gradient( #181818, #343434);
+  background-image: linear-gradient( #181818, #343434);
 }
 
 #footer,

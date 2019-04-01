@@ -11,7 +11,7 @@ function pixture_reloaded_preprocess_html(&$vars) {
   $path_to_theme = drupal_get_path('theme', $theme_name);
 
   // Add a class for the active color scheme
-  if (module_exists('color')) {
+  if (module_exists('color') && function_exists('get_color_scheme_name')) {
     $class = check_plain(get_color_scheme_name($theme_key));
     $vars['classes_array'][] = 'color-scheme-' . drupal_html_class($class);
   }

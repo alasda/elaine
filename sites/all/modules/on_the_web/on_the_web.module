@@ -1,6 +1,6 @@
 <?php
 /**
- * @file 
+ * @file
  * Adds a block with a series of icons which link off-site to other web presences.
  */
 
@@ -35,16 +35,21 @@ function on_the_web_settings_form($form, &$form_state) {
     '#default_value' => array(variable_get('on_the_web_size', 'sm')),
   );
   $form['on_the_web_sitename'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Use <a href="!url">Site name</a> in link titles', array('!url' => url('admin/config/system/site-information'))),
-    '#default_value' => variable_get('on_the_web_sitename', TRUE),
-    '#description' => t('Unchecking this box will use "us" as the title attribute for these links, instead of <em>Find !us on Facebook</em>.', array('!us' => variable_get('site_name', 'Drupal'))),
+    '#type' => 'radios',
+    '#title' => 'Hover text selection',
+    '#default_value' => variable_get('on_the_web_sitename', 1),
+    '#description' => t('This setting will update the title attribute for each social media link.'),
+    '#options' => array(
+      1 => t('Use the <strong><a href="!url">Site name</a></strong>, for example: <em>Find !us on Facebook</em>', array('!us' => variable_get('site_name', 'Drupal'), '!url' => url('admin/config/system/site-information'))),
+      0 => t('Use <strong>us</strong>, for example: <em>Find us on Facebook</em>'),
+      2 => t('Use <strong>me</strong>, for example: <em>Find me on Facebook</em>'),
+    ),
   );
   $form['on_the_web_target'] = array(
     '#type' => 'checkbox',
     '#title' => t('Open links in new windows'),
     '#default_value' => variable_get('on_the_web_target', TRUE),
-    '#description' => t('Unchecking this box his will remove the target="_blank" attribute from these links.'),
+    '#description' => t('Unchecking this box will remove the target="_blank" attribute from these links.'),
   );
 
   // Get all the services.
@@ -187,7 +192,7 @@ function on_the_web_block_configure($delta = 0) {
   return $form;
 }
 
- 
+
 /**
  * Implementation of hook_block_save().
  */
@@ -200,8 +205,8 @@ function on_the_web_block_save($delta = 0, $edit = array()) {
     }
   }
 }
- 
- 
+
+
 /**
  * Implementation of hook_block_view().
  */
@@ -224,11 +229,15 @@ function on_the_web_display_block($delta) {
   $output = '';
 
   // Get the appropriate name to use in links.
-  if (variable_get('on_the_web_sitename', TRUE)) {
+  $name_text = variable_get('on_the_web_sitename', 1);
+  if ($name_text == 1) {
     $name = variable_get('site_name', 'Drupal');
   }
-  else {
-    $name = t('Us');
+  elseif ($name_text == 0) {
+    $name = t('us');
+  }
+  elseif ($name_text == 2) {
+    $name = t('me');
   }
 
   // Get the display style, and enabled icons.
@@ -243,7 +252,7 @@ function on_the_web_display_block($delta) {
   foreach ($services as $service => $info) {
     $link = variable_get('on_the_web_' . $service . '_page', FALSE);
 
-    if (($display == 'auto' && $link) || 
+    if (($display == 'auto' && $link) ||
         ($display == 'manual' && array_key_exists($service, $enabled) && $enabled[$service] === $service)) {
 
       if ($service != 'rss') {
