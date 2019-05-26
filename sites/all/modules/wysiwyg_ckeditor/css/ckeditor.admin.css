@@ -1,161 +1,132 @@
-/**
- * @file
- * Styles for configuration of CKEditor module.
- *
- * Many of these styles are adapted directly from the default CKEditor theme
- * "moono".
- */
+/* Administrative classes */
 
-.ckeditor-toolbar-active {
-  border: 1px solid #b6b6b6;
-  padding: 6px 8px 2px;
-  box-shadow: 0 1px 0 white inset;
-  background: #cfd1cf;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(#cfd1cf));
-  background-image: -moz-linear-gradient(top, whiteSmoke, #cfd1cf);
-  background-image: -o-linear-gradient(top, whiteSmoke, #cfd1cf);
-  background-image: -ms-linear-gradient(top, whiteSmoke, #cfd1cf);
-  background-image: linear-gradient(top, whiteSmoke, #cfd1cf);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#fff5f5f5', endColorstr='#ffcfd1cf');
-  margin: 5px 0;
-  overflow: nowrap;
+/* Toolbar Drag & Drop */
+form#ckeditor-admin-profile-form textarea#edit-toolbar {
+    display: none;
 }
-.ckeditor-toolbar-disabled {
-  margin: 5px 0;
+form#ckeditor-admin-profile-form #edit-toolbar + .grippie {
+    display: none;
+}
+div.sortableList {
+    cursor: n-resize;
+}
+div.widthMarker {
+    height: 20px;
+    border-top: 1px dashed #CCC;
+    margin: 10px 0px 0px 1px;
+    padding-left: 1px;
+    text-align: center;
+}
+div.sortableList.group {
+    margin: 20px 0px 0px 0px;
+}
+div.sortableList div.sortableListDiv {
+    height: 34px;
+    margin-bottom: 3px;
+    width: 930px;
+}
+div.sortableList div.sortableListDiv span.sortableListSpan {
+    background-color: #F0F0EE;
+    height: 34px;
+    border-right: 1px dashed #CCC;
+    display: block;
+}
+div.sortableList div.sortableListDiv span.sortableListSpan ul {
+    width: 930px;
+    white-space: nowrap;
+    border: 1px solid #CCC;
+    list-style: none;
+    margin:0px;
+    padding: 0px 0px 0px 1px;
+    height: 34px;
+}
+div.sortableList div.sortableListDiv span.sortableListSpan ul li {
+    list-style: none;
+    cursor: move;
+    height: 18px;
+    min-width: 18px;
+    padding: 4px;
+}
+div.sortableList div.sortableListDiv span.sortableListSpan ul li.group {
+    min-width: 5px;
+    padding-left: 4px;
+}
+div.sortableList div.sortableListDiv span.sortableListSpan ul li.spacer img {
+    margin-bottom: 4px;
+}
+div.sortableList div.sortableListDiv span.sortableListSpan ul li img {
+    border: 0;
+    padding: 0;
+    margin: 0
+}
+fieldset#edit-appearance li.sortableItem img {
+    max-height:24px;
+    width:auto;
+}
+div.sortableList #Format img, div.sortableList #Font img, div.sortableList #Styles img, div.sortableList #FontSize img {
+    max-height:30px !important;
+}
+div.sortableList #Format, div.sortableList #Font, div.sortableList #Styles, div.sortableList #FontSize {
+    padding:0;
+}
+li.sortableItem {
+    position: relative;
+    float: left;
+    margin: 3px 1px 1px 0px;
+    border: 1px solid #CCC;
+    background-color: #F0F0EE;
+    z-index: 99;
 }
 
-.ckeditor-toolbar-configuration ul.ckeditor-buttons {
-  min-height: 26px;
-  min-width: 26px;
-  list-style: none;
-
-  float: left;
-  clear: left;
-  padding: 0;
-  margin: 0 6px 5px 0;
-  border: 1px solid #a6a6a6;
-  border-bottom-color: #979797;
-  border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 0 2px rgba(255, 255, 255, .15) inset, 0 1px 0 rgba(255, 255, 255, .15) inset;
+#security-filters .filter-text-formats {
+    float: left;
+    clear: both;
+    width: 15%;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 10px 0px;
 }
-ul.ckeditor-buttons li {
-  display: inline-block;
-  height: 18px;
-  padding: 4px 6px;
-  outline: none;
-  cursor: move;
-  float: left;
+
+#security-filters .filter-text-formats .filter-text-format-status {
+    float: left;
+    padding-right: 20px;
+}
+
+#security-filters .filter-text-formats .enabled {
+    background: url(../images/tick.png) no-repeat right center;
+}
+
+#security-filters .filter-text-formats .disabled {
+    background: url(../images/delete.png) no-repeat right center;
+}
+
+#security-filters .filter-info {
+    float: left;
+    width: 85%;
+}
+
+#security-filters .fieldset-legend {
+    background: none;
+    padding-left: 10px;
+}
+
+#security-filters .fieldset-legend a {
+    font-weight: normal;
+    font-size: 10px;
+    padding-left: 5px;
+}
+
+#security-filters .filter-wrapper {
+    clear: both;
+    float: left;
+    border-bottom: 1px solid #CCCCCC;
+    width: 100%;
+}
+
+/* Fix for fieldset for-edit-apperance in Firefox*/
+fieldset#edit-appearance div#groupLayout, div#allButtons  {
   border: 0;
-  white-space: nowrap;
-
-  background: #e4e4e4;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(white),to(#e4e4e4));
-  background-image: -moz-linear-gradient(top,white,#e4e4e4);
-  background-image: -webkit-linear-gradient(top,white,#e4e4e4);
-  background-image: -o-linear-gradient(top,white,#e4e4e4);
-  background-image: -ms-linear-gradient(top,white,#e4e4e4);
-  background-image: linear-gradient(top,white,#e4e4e4);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#ffffffff',endColorstr='#ffe4e4e4');
-}
-ul.ckeditor-buttons li:first-child {
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-ul.ckeditor-buttons li:last-child {
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-ul.ckeditor-buttons li.ckeditor-button-placeholder {
-  background: #333;
-  opacity: 0.3;
-}
-ul.ckeditor-multiple-buttons {
-  padding: 2px;
-  margin: 0;
-  list-style: none;
-  float: left;
-}
-ul.ckeditor-multiple-buttons li {
-  padding: 2px 0;
-  margin: 0;
-  display: inline-block;
-  height: 18px;
-  cursor: move;
-  float: left;
-}
-.ckeditor-multiple-label {
-  float: left;
-  padding: 4px;
-}
-ul.ckeditor-buttons li.ckeditor-group-button-separator,
-ul.ckeditor-multiple-buttons li.ckeditor-group-button-separator {
-  background: url(../images/group-separator.png) no-repeat center center;
-  width: 13px;
-  padding: 0;
-  height: 29px;
-  margin: -1px -3px -2px;
-  position: relative;
-  z-index: 10;
-}
-ul.ckeditor-buttons li.ckeditor-button-separator {
-  width: 2px;
-  padding: 0 4px;
-  height: 26px;
-  margin: 0 -4px;
-  position: relative;
-  z-index: 10;
-
-  background: #e4e4e4;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e4e4e4));
-  background-image: -moz-linear-gradient(top, white, #e4e4e4);
-  background-image: -webkit-linear-gradient(top, white, #e4e4e4);
-  background-image: -o-linear-gradient(top, white, #e4e4e4);
-  background-image: -ms-linear-gradient(top, white, #e4e4e4);
-  background-image: linear-gradient(top, white, #e4e4e4);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#ffffffff', endColorstr='#ffe4e4e4');
-}
-ul.ckeditor-multiple-buttons li.ckeditor-button-separator {
-  width: 2px;
-  padding: 0;
-  height: 26px;
-  margin: 0 10px;
-}
-.ckeditor-separator {
-  background-color: silver;
-  background-color: rgba(0, 0, 0, .2);
-  margin: 5px 0;
-  height: 18px;
-  width: 1px;
-  display: block;
-  -webkit-box-shadow: 1px 0 1px rgba(255, 255, 255, .5);
-  -moz-box-shadow: 1px 0 1px rgba(255,255,255,.5);
-  box-shadow: 1px 0 1px rgba(255, 255, 255, .5)
-}
-.ckeditor-button-arrow {
-  width: 0;
-  text-align: center;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 3px solid #333;
-  display: inline-block;
-  margin: 0 4px 2px;
-}
-
-.ckeditor-row-controls {
-  float: right;
-  font-size: 18px;
-  width: 40px;
-  text-align: right;
-}
-.ckeditor-row-controls a {
-  display: inline-block;
-  padding: 6px 2px;
-  height: 16px;
-  width: 16px;
-  line-height: 0.9;
-  font-weight: bold;
-  color: #333;
-}
-.ckeditor-row-controls a:hover {
-  text-decoration: none;
+  padding: 0 0 0 0;
+  margin: 1em 0;
+  overflow: auto;
 }
